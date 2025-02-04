@@ -15,7 +15,7 @@ import ForwardMediationBoard from "../pages/Request/ForwardMediationBoard";
 import ValidityPeriodExtension from "../pages/Request/ValidityPeriodExtension";
 import RequestResponseLog from "../pages/Request/RequestResponseLog";
 
-import Incident_List from "../pages/Incident/Incident_List";
+// import Incident_List from "../pages/Incident/Incident_List";
 import Incident_Register_Individual from "../pages/Incident/Incident_Register_Individual";
 import Incident_Register_Bulk_Upload from "../pages/Incident/Incident_Register_Bulk_Upload";
 
@@ -89,7 +89,7 @@ const Routers = () => {
     <Route path="/pages/Distribute/CaseDistributionDRCSummarywithRTOM" element={<ProtectedRoute element={<CaseDistributionDRCSummarywithRTOM />} allowedRoles={['superadmin']} />} />
 
     {/* //INCIDENT */}
-    <Route path="/Incident/Incident_List" element={<ProtectedRoute element={<Incident_List />} allowedRoles={['superadmin']} />} />
+    
 
       <Route path="/incident/register" element={<ProtectedRoute element={<Incident_Register_Individual />} allowedRoles={['superadmin']} />} />
       <Route path="/incident/register-bulk" element={<ProtectedRoute element={<Incident_Register_Bulk_Upload />} allowedRoles={['superadmin']} />} />
