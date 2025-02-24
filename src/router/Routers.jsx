@@ -4,6 +4,9 @@ import Login from "../components/Login";
 import Register from "../components/Register";
 import ProtectedRoute from "../components/ProtectedRoute";
 import Unauthorized from "../components/Unauthorized";
+import CreateTask from "../pages/createTasks";
+import UserProfile from "../pages/userProfile";
+import Chart from "../pages/Chart";
 
 import Dashboard from "../pages/Dashboard";
 import PrototypeA from "../assets/prototype/prototypeA";
@@ -15,9 +18,11 @@ import ForwardMediationBoard from "../pages/Request/ForwardMediationBoard";
 import ValidityPeriodExtension from "../pages/Request/ValidityPeriodExtension";
 import RequestResponseLog from "../pages/Request/RequestResponseLog";
 
-// import Incident_List from "../pages/Incident/Incident_List";
+import Incident_List from "../pages/Incident/Incident_List";
 import Incident_Register_Individual from "../pages/Incident/Incident_Register_Individual";
 import Incident_Register_Bulk_Upload from "../pages/Incident/Incident_Register_Bulk_Upload";
+import SupBulkUploadLog from "../pages/Incident/sup_bulk_upload_LOG";
+
 
 
 //DISTRIBUTION
@@ -26,6 +31,7 @@ import CollectOnlyCPECollect from "../pages/Distribution/CollectOnlyCPECollect";
 import DirectLODSendingIncident from "../pages/Distribution/DirectLODSendingIncident";
 import RejectIncident from "../pages/Distribution/RejectIncident";
 import RejectIncidentlog from "../pages/Distribution/RejectIncidentlog";
+import FilteredIncidents from "../pages/Distribution/FilteredIncidents";
 
  {/* Distribute Imports */}
  import AssignDRC from "../pages/Distribute/AssignDRC";
@@ -37,18 +43,24 @@ import RejectIncidentlog from "../pages/Distribution/RejectIncidentlog";
  import DRCAssignManagerApproval from "../pages/Distribute/DRCAssignManagerApproval";
  import DistributeDummy from "../pages/Distribute/DistributeDummy";
  import CaseDistributionDRCTransactions1Batch from "../pages/Distribute/CaseDistributionDRCTransactions-1Batch";
+ import CaseDistributionDRCTransactionsBatch from "../pages/Distribute/CaseDistributionDRCTransactions-(1Batch)";
  import CaseDistributionDRCSummary from "../pages/Distribute/CaseDistributionDRCSummary";
  import CaseDistributionDRCSummarywithRTOM from "../pages/Distribute/CaseDistributionDRCSummarywithRTOM";
  import AmendAssignedDRC from "../pages/Distribute/AmendAssignedDRC";
-
-
+ import ReAssignDRC from "../pages/Distribute/ReAssignDRC";
+ import AssignDRCCaseList from "../pages/Distribute/AssignDRCCaseList";
 const Routers = () => {
   return (
     <Routes>
 
       <Route path="/" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/unauthorized" element={<Unauthorized/>} />
+
+      <Route path="/unauthorized" element={<Unauthorized />} />
+      <Route path="/create-task" element={<CreateTask />} />
+      <Route path="/user-profile" element={<UserProfile />} />
+      <Route path="/chart" element={<Chart />} />
+
 
       {/* Prototype Routes */}
       <Route path="/dashboard" element={<ProtectedRoute element={<Dashboard />} allowedRoles={['superadmin']} />} />
@@ -69,6 +81,7 @@ const Routers = () => {
       <Route path = "/Distribution/direct-lod-sending-incident" element={<DirectLODSendingIncident />} />
       <Route path = "/Distribution/reject-incident" element={<RejectIncident />} />
       <Route path = "/Distribution/reject-incident-log" element={<RejectIncidentlog />} />
+      <Route path = "/Distribution/filtered-incident" element={<ProtectedRoute element={<FilteredIncidents/>} allowedRoles={['superadmin']}/>}/>
 
 
 
@@ -88,12 +101,19 @@ const Routers = () => {
     <Route path="/pages/Distribute/AmendAssignedDRC" element={<ProtectedRoute element={<AmendAssignedDRC />} allowedRoles={['superadmin']} />} />
     <Route path="/pages/Distribute/CaseDistributionDRCSummarywithRTOM" element={<ProtectedRoute element={<CaseDistributionDRCSummarywithRTOM />} allowedRoles={['superadmin']} />} />
 
+    <Route path="/pages/Distribute/CaseDistributionDRCTransactions-(1Batch)" element={<ProtectedRoute element={<CaseDistributionDRCTransactionsBatch />} allowedRoles={['superadmin']} />} />
+
+    <Route path="/pages/Distribute/ReAssignDRC" element={<ReAssignDRC />} />
+    <Route path="/pages/Distribute/AssignDRCCaseList" element={<AssignDRCCaseList />} />
     {/* //INCIDENT */}
-    
+    <Route path="/Incident/Incident_List" element={<ProtectedRoute element={<Incident_List />} allowedRoles={['superadmin']} />} />
 
       <Route path="/incident/register" element={<ProtectedRoute element={<Incident_Register_Individual />} allowedRoles={['superadmin']} />} />
       <Route path="/incident/register-bulk" element={<ProtectedRoute element={<Incident_Register_Bulk_Upload />} allowedRoles={['superadmin']} />} />
+      <Route path="/incident/upload-log" element={<ProtectedRoute element={<SupBulkUploadLog />} allowedRoles={['superadmin']} />} />
+      
         
+
 
     
     </Routes>
